@@ -14,3 +14,10 @@ export const LogoImg = styled.img`
     height: 55px;
     width: 280px;
 `;
+
+export const Titulo = styled.h1`
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-weight: bold;
+    font-size: 20px;
+`;

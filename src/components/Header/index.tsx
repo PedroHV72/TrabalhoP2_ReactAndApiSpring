@@ -2,12 +2,12 @@ import React from 'react';
 
 import Logo from '../../assets/logoMax.png'
 
-import { Container, LogoImg } from './styles'
+import { Container, LogoImg, Titulo } from './styles'
 
 const Header: React.FC = () => {
     return (
         <Container>
-            <h2>A melhor marca de suplementos para sua evolução</h2>
+            <Titulo>A melhor marca de suplementos para sua evolução</Titulo>
 
             <LogoImg src={Logo} />
         </Container>

@@ -1,11 +1,18 @@
 import React from 'react';
 
-import { Container } from './styles'
+import Slider from '../Slider';
+import Footer from '../Footer'
+
+import { Container, TituloDiv, DivTitleCard } from './styles'
 
 const Content: React.FC = () => {
     return (
         <Container>
-            <h1>Content</h1>
+            <Slider />
+            <DivTitleCard>
+                <TituloDiv>Conheça um pouco mais de nossa marca</TituloDiv>
+            </DivTitleCard>
+            <Footer />
         </Container>
     );
 }
