@@ -16,4 +16,12 @@ export const TituloDiv = styled.h1`
     letter-spacing: 1.5px;
     font-weight: bold;
     font-size: 40px;
+    padding-bottom: 60px;
+`;
+
+export const ContentCards = styled.h1`
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    gap: 1rem;
 `;
