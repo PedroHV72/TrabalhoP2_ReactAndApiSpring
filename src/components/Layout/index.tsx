@@ -7,11 +7,13 @@ import Content from '../Content';
 import Footer from '../Footer'
 
 
-const Layout: React.FC = () => {
+const Layout: React.FC = ({children}) => {
     return (
         <GridLayout>
             <Header />
-            <Content />
+            <Content>
+                {children}
+            </Content>
             <Footer />
         </GridLayout>
     );

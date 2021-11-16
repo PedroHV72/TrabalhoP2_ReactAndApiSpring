@@ -1,15 +1,12 @@
 import React from 'react';
 
 import CardRoupas from '../../components/CardRoupas';
-import Header from '../../components/Header';
-import Footer from '../../components/Footer'
 
 import { GridLayout, ContentCards, DivTitleCard, TituloDiv } from './styles'
 
 const Roupas: React.FC = () => {
     return (
         <GridLayout>
-            <Header />
             <DivTitleCard>
                 <TituloDiv>Alguns trajes para o seu treino</TituloDiv>
             </DivTitleCard>
@@ -24,7 +21,6 @@ const Roupas: React.FC = () => {
                     title="Boné"
                     background="https://cd.shoppub.com.br/gsn/media/cache/69/67/6967eea6d4a3c549a89ef172f6fb77df.jpg"/>
             </ContentCards>
-            <Footer />
         </GridLayout>
     );
 }
