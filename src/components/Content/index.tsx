@@ -1,9 +1,6 @@
 import React from 'react';
 
-import Slider from '../Slider';
-import CardPrincipal from '../CardPrincipal'
-
-import { Container, TituloDiv, DivTitleCard, ContentCards } from './styles'
+import { Container } from './styles'
 
 const Content: React.FC = ({children}) => {
     return (

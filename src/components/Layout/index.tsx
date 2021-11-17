@@ -10,7 +10,7 @@ import Footer from '../Footer'
 const Layout: React.FC = ({children}) => {
     return (
         <GridLayout>
-            <Header />
+            <Header to="/"/>
             <Content>
                 {children}
             </Content>

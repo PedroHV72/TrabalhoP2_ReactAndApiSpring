@@ -1,10 +1,11 @@
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 interface ICardSuplementosProps {
     background: string;
 }
 
-export const Container = styled.section<ICardSuplementosProps>`
+export const Container = styled(Link)<ICardSuplementosProps>`
     position: relative;
     background: url(${props => props.background});
     background-size: cover;

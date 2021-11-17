@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 export const Container = styled.div`
@@ -15,9 +16,15 @@ export const LogoImg = styled.img`
     width: 280px;
 `;
 
-export const Titulo = styled.h1`
+export const Titulo = styled(Link)`
     text-transform: uppercase;
     letter-spacing: 1.5px;
     font-weight: bold;
     font-size: 20px;
+    text-decoration: none;
+    color: ${props => props.theme.colors.black};
+
+    &:hover {
+        color: ${props => props.theme.colors.gray}
+    }
 `;

@@ -7,6 +7,7 @@ import Home from '../pages/Home';
 import Atletas from '../pages/Atletas';
 import Suplementos from '../pages/Suplementos';
 import Roupas from '../pages/Roupas';
+import ProdutoUnit from '../pages/ProdutoUnit';
 
 const AppRoutes: React.FC = () => (
     <ScrollToTop>
@@ -17,6 +18,7 @@ const AppRoutes: React.FC = () => (
                 <Route path="/atletas" exact component={Atletas} />
                 <Route path="/suplementos" exact component={Suplementos} />
                 <Route path="/roupas" exact component={Roupas} />
+                <Route path="/suplementos/:id" exact component={ProdutoUnit} />
             </Switch>
         </Layout>
     </ScrollToTop>

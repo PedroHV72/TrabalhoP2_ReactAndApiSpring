@@ -6,7 +6,7 @@ export const GridLayout = styled.div`
     grid-template-rows: 85px auto;
 
     grid-template-areas: 'HD HD', 'CT CT';
-    height: 100vh;
+    height: 70vh;
 `;
 
 export const ContentCards = styled.h1`

@@ -1,14 +1,15 @@
 import React from 'react';
 import { useState } from 'react';
 import { useEffect } from 'react';
+import { useParams } from 'react-router-dom';
 
-import CardSuplementos from '../../components/CardSuplementos';
+import CardProdutoUnitario from '../../components/CardProdutoUnitario';
 import api from '../../services/api';
 
-import { GridLayout, ContentCards, DivTitleCard, TituloDiv } from './styles'
+import { GridLayout, ContentCards } from './styles'
 
-interface ISuplementosProps {
-    id: number;
+interface IProdutoUnitProps {
+    id: string;
     nome: string;
     dataCadastro: string;
     valorUnitario: number;
@@ -17,13 +18,15 @@ interface ISuplementosProps {
 }
   
 
-const Suplementos: React.FC = () => {
-    const [data, setData] = useState<ISuplementosProps[]>();
+const ProdutoUnit: React.FC = () => {
+    const { id } = useParams<{ id: string }>();
+
+    const [data, setData] = useState<IProdutoUnitProps[]>();
 
     useEffect(() => {
         async function loadData() {
             try {
-                const response = await api.get('/produto/')
+                const response = await api.get(`/produto/${Number(id)}`)
                 setData(response.data)
                 console.log(response.data)
             }
@@ -32,20 +35,18 @@ const Suplementos: React.FC = () => {
             }
         };
         loadData();
-    }, [])
+    }, [id])
 
     return (
         <GridLayout>
-            <DivTitleCard>
-                <TituloDiv>Nossos produtos para aumentar seu desempenho</TituloDiv>
-            </DivTitleCard>
             <ContentCards>
                 {data?.map((produto, index) => (
-                    <CardSuplementos 
+                    <CardProdutoUnitario 
                         key={index}
                         title={produto.nome}
-                        background={produto.fotoUrl}
-                        to={`/suplementos/${produto.id}`}
+                        description={produto.descricao}
+                        value={produto.valorUnitario}
+                        image={produto.fotoUrl}
                     />
                 ))}
             </ContentCards>
@@ -53,4 +54,4 @@ const Suplementos: React.FC = () => {
     );
 }
 
-export default Suplementos;
+export default ProdutoUnit;
