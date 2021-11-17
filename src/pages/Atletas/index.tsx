@@ -1,25 +1,48 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 import CardAtleta from '../../components/CardAtleta';
+import api from '../../services/api';
 
 import { GridLayout, ContentCards, DivTitleCard, TituloDiv } from './styles'
 
+interface IAtletasProps {
+    id: number;
+    nome: string;
+    email: string;
+    senha: string;
+    fotoUrl: string;
+}
+
 const Atletas: React.FC = () => {
+    const [data, setData] = useState<IAtletasProps[]>();
+
+    useEffect(() => {
+        async function loadData() {
+            try {
+                const response = await api.get('/usuario/')
+                setData(response.data)
+                console.log(response.data)
+            }
+            catch(error) {
+                console.log(error)
+            }
+        };
+        loadData();
+    }, [])
+
     return (
         <GridLayout>
             <DivTitleCard>
                 <TituloDiv>Esses são uns de nossos atletas</TituloDiv>
             </DivTitleCard>
             <ContentCards>
-                <CardAtleta 
-                    title="Caike Pro"
-                    background="https://esportefitness.com/wp-content/uploads/2020/12/Caike-Pro.jpeg"/>
-                <CardAtleta 
-                    title="Ângela Borges"
-                    background="https://protanbr.com.br/wp-content/uploads/2021/05/Design-sem-nome.png"/>
-                <CardAtleta 
-                    title="Julio Balestrin"
-                    background="https://lojamaxtitanium.vtexassets.com/assets/vtex.file-manager-graphql/images/8dc37043-6f35-4066-baa3-b6ba95a74924___a91f51a1794a3ed7ffd25e6b39fb1872.png"/>
+            {data?.map((usuario, index) => (
+                    <CardAtleta 
+                        key={index}
+                        title={usuario.nome}
+                        background={usuario.fotoUrl}
+                    />
+                ))}
             </ContentCards>
         </GridLayout>
     );
